@@ -1,0 +1,29 @@
+.building {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+  border-radius: 50px;
+}
+
+.attack-button {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: min-content;
+  height: min-content;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+  border-radius: 50px;
+  border: unset;
+  transition: all .2s;
+}
+
+.attack-button:hover {
+  left: -2px;
+  top: -2px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 255, 0.3);
+}

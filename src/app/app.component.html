@@ -6,7 +6,7 @@
   </div>
 
   <div class="header-element">
-    <a (click)="setCharacter(null)"><p>Главная</p></a>
+    <a (click)="setCharacter(null); setBuilding(null)"><p>Главная</p></a>
   </div>
 
   <div class="header-element user">
@@ -15,15 +15,28 @@
 </header>
 
 <div class="container">
-  <div class="cards" *ngIf="character == null else game">
+  <div class="cards" *ngIf="character == null">
     <a *ngFor="let character of characters" (click)="setCharacter(character.character)">
       <app-card
         [card]="character"
       ></app-card>
     </a>
   </div>
+  <div class="cards" *ngIf="character != null && building == null">
+    <a *ngFor="let building of buildings" (click)="setBuilding(building.building)">
+      <app-card
+        [card]="building"
+      ></app-card>
+    </a>
+  </div>
+  <div class="game" *ngIf="character != null && building != null">
+    <app-game
+      [character]="character"
+      [building]="building"
+    ></app-game>
+  </div>
 </div>
 
-<ng-template #game>
-  <p>GAME</p>
-</ng-template>
+<footer>
+  <p>Сделано командой CYBERSQUAD</p>
+</footer>

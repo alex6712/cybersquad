@@ -6,13 +6,13 @@ html {
   background-size: 100%;
   font-family: 'Roboto', sans-serif;
 
-  a:link, a:visited {
+  a, a:link, a:visited {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
 
-  a:link:active, a:visited:active {
+  a:active, a:link:active, a:visited:active {
     color: black;
   }
 
@@ -30,7 +30,7 @@ html {
       align-items: center;
       z-index: 2000;
 
-      a:link, a:visited {
+      a, a:link, a:visited {
         color: white;
         font-weight: bold;
         text-decoration: none;
@@ -38,11 +38,11 @@ html {
         transition: color .2s;
       }
 
-      a:link:hover, a:visited:hover {
+      a:hover, a:link:hover, a:visited:hover {
         color: black;
       }
 
-      a:link:active, a:visited:active {
+      a:active, a:link:active, a:visited:active {
         color: black;
       }
     }
