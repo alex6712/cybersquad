@@ -17,19 +17,19 @@ export class AppComponent {
       title: 'Воин',
       content: 'Защита персональных данных и обеспечение конфиденциальности',
       imageURL: '../assets/img/warrior.png',
-      character: new Character('Хуета')
+      character: new Character('alex6712')
     },
     {
       title: 'Призыватель',
       content: 'Программирование',
       imageURL: '../assets/img/summoner.png',
-      character: new Character('Пизда')
+      character: new Character('Naighten')
     },
     {
       title: 'Маг',
       content: 'Управление данными, информацией и цифровым контентом',
       imageURL: '../assets/img/mage.png',
-      character: new Character('Ебанашка')
+      character: new Character('Soul-kun')
     },
 
   ];
