@@ -1,8 +1,29 @@
+<header>
+  <div class="header-element">
+    <a href="#">
+      <p>Наши партнеры</p>
+    </a>
+  </div>
+
+  <div class="header-element">
+    <a (click)="setCharacter(null)"><p>Главная</p></a>
+  </div>
+
+  <div class="header-element user">
+    <a href="#"><img alt="Личный кабинет" src="assets/img/user.png"></a>
+  </div>
+</header>
+
 <div class="container">
-  <div class="cards">
-    <app-card
-      *ngFor="let character of characters"
-      [card]="character"
-    ></app-card>
+  <div class="cards" *ngIf="character == null else game">
+    <a *ngFor="let character of characters" (click)="setCharacter(character.character)">
+      <app-card
+        [card]="character"
+      ></app-card>
+    </a>
   </div>
 </div>
+
+<ng-template #game>
+  <p>ХУЕТА</p>
+</ng-template>
