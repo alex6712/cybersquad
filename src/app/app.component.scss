@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  top: 84px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
