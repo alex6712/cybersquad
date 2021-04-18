@@ -15,7 +15,7 @@
   width: min-content;
   height: min-content;
   background: white;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
   border-radius: 50px;
   border: unset;
@@ -26,4 +26,96 @@
   left: -2px;
   top: -2px;
   box-shadow: 5px 5px 20px rgba(0, 0, 255, 0.3);
+}
+
+.health-bar {
+  background: red;
+  margin: 10px;
+  border-radius: 50px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.mana-bar {
+  background: aquamarine;
+  margin: 10px;
+  border-radius: 50px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.building-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center
+}
+
+.character {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  img {
+    height: 450px;
+    width: auto;
+    border-radius: 50px;
+    margin: 10px;
+  }
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: max-content;
+}
+
+.answer {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.answer input[type=radio] {
+  display: none;
+}
+
+.answer label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 15px;
+  line-height: 34px;
+  border-radius: 25px;
+  user-select: none;
+  background-color: #fff;
+  transition: background-color;
+}
+
+.answer input[type=radio]:checked + label {
+  background-color: rgba(0, 0, 255, 0.3);
+}
+
+.answer label:hover {
+  color: #666;
+}
+
+.win {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: max-content;
+  margin: 15px;
+  padding: 15px;
+  line-height: 34px;
+  border-radius: 25px;
+  user-select: none;
+  background-color: #0f0;
 }

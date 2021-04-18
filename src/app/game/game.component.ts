@@ -1,4 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Task } from '../card/card.component';
+import {NgForm} from '@angular/forms';
+import {AppComponent} from '../app.component';
 
 export class Armor {
   equipped: false;
@@ -6,7 +9,7 @@ export class Armor {
   armor: number;
 
   constructor(armor: number) {
-    if (armor < 0 || armor > 100) { throw new Error('Unavailable value of \'armor\' argument: ' + armor.toString()); }
+    if (armor < 0 || armor > 100) { throw new Error('Unavailable value of \'armor\' argument: ' + armor); }
     this.armor = armor;
   }
 }
@@ -121,10 +124,43 @@ export class Character {
 export class Building {
   name: string;
 
-  constructor(name: string) {
+  imageURL: string;
+
+  constructor(name: string, imageURL: string) {
+    this.name = name;
+    this.imageURL = imageURL;
+  }
+}
+
+export class Enemy {
+  name: string;
+
+  imageURL: string;
+
+  level: number;
+
+  maxHealthPoints = 100;
+  healthPoints = 100;
+
+  damage: number;
+  armor: number;
+
+  constructor(name: string, imageURL: string) {
+    this.changeName(name);
+
+    this.imageURL = imageURL;
+
+    this.damage = 5;
+    this.armor = 5;
+  }
+
+  changeName(name: string): void {
+    if (name.length > 25) { throw new Error('The length of character\'s name can\'t be more than 25 symbols!'); }
     this.name = name;
   }
 }
+
+
 
 @Component({
   selector: 'app-game',
@@ -135,7 +171,59 @@ export class GameComponent implements OnInit {
   @Input() character: Character;
   @Input() building: Building;
 
-  ngOnInit(): void {
+  enemy: Enemy = new Enemy('Elk Cloner', '../assets/img/enemy.png');
+
+  tasks: Task[] = [];
+  currentTask: Task = {
+    inProgress: true,
+    title: 'Монстры!',
+    content: 'Недавно в лесу появились новые вирусы. Проверьте близлежащие окрестности и разберитесь с проблемой.',
+    requirements: 'Один экземпляр Elk Cloner.',
+    help: '',
+    enemy: this.enemy,
+    answer: 2
+  };
+
+  answer: number;
+  win: boolean;
+
+  addTask(title: string, content: string, requirements: string, help: string, enemy: Enemy): void {
+    this.tasks.push({
+      inProgress: false,
+      title,
+      content,
+      requirements,
+      help,
+      enemy,
+      answer: 2
+    });
   }
 
+  setCurrentTask(task: Task): void {
+    this.tasks.splice(this.tasks.indexOf(task), 1);
+    this.currentTask = task;
+    this.currentTask.inProgress = true;
+    this.enemy = this.currentTask.enemy;
+  }
+
+  setAnswer(value: number): void {
+    this.answer = value;
+  }
+
+  checkAnswer(): void {
+    if (this.answer === this.currentTask.answer) {
+      this.win = true;
+      this.enemy.healthPoints = 0;
+    }
+  }
+
+  ngOnInit(): void {
+    this.addTask(
+      'Монстры!',
+      'Недавно в лесу появились новые вирусы. Проверьте близлежащие окрестности и разберитесь с проблемой.',
+      'Один экземпляр Elk Cloner.',
+      '',
+      new Enemy('Elk Cloner', '../assets/img/enemy.png')
+    );
+  }
 }

@@ -1,40 +1,62 @@
 <div class="building">
   <h1>{{ building.name }}</h1>
   <div *ngIf="building.name == 'Гильдия'">
-    <h2>{{ building.name }}</h2>
+    <h3>Доска с заданиями</h3>
+    <p *ngIf="tasks.length == 0 else taskArray">Здесь пока не появлились новые задания!</p>
+    <ng-template #taskArray>
+      <a *ngFor="let task of tasks" (click)="setCurrentTask(task)">
+        <app-card
+          [card]="task"
+        ></app-card>
+      </a>
+    </ng-template>
   </div>
   <div *ngIf="building.name == 'Лес'">
-    <div style="display: flex; justify-content: space-between; align-items: center; align-content: center">
-      <div
-        style="width: 40%; display: flex; flex-direction: column; text-align: center; align-items: center; justify-content: center; padding: 10px">
-        <p [ngStyle]="{
-        background: 'red',
-        width: (character.healthPoints / character.maxHealthPoints * 100) + '%',
-        margin: '10px',
-        borderRadius: '50px'
-      }">{{ character.healthPoints }}</p>
-        <p [ngStyle]="{
-        background: 'aqua',
-        width: (character.manaPoints / character.maxManaPoints * 100) + '%',
-        margin: '10px',
-        borderRadius: '50px'
-      }">{{ character.manaPoints }}</p>
-        <img alt="{{ character.name }}" src="{{ character.imageURL }}"
-             style="height: 450px; width: auto; border-radius: 50px; margin: 10px;">
+    <div *ngIf="currentTask == null">
+      <h3>Пока что у тебя нет заданий.</h3>
+      <p>Думаю, тебе стоит сходить в гильдию. Там много различных задний на уничтожение монстров.</p>
+    </div>
+    <div class="building-content" *ngIf="currentTask != null">
+      <div class="character">
+        <p class="health-bar" [ngStyle]="{ width: (character.healthPoints / character.maxHealthPoints * 100) + '%' }">
+          {{ character.healthPoints }}HP
+        </p>
+        <p class="mana-bar" [ngStyle]="{ width: (character.manaPoints / character.maxManaPoints * 100) + '%' }">
+          {{ character.manaPoints }}MP
+        </p>
+        <img alt="{{ character.name }}" src="{{ character.imageURL }}">
       </div>
-      <button class="attack-button">
-        Атаковать!
-      </button>
-      <div
-        style="width: 40%; display: flex; flex-direction: column; text-align: center; align-items: center; justify-content: center; padding: 10px">
-        <p [ngStyle]="{
-        background: 'red',
-        width: (character.healthPoints / character.maxHealthPoints * 100) + '%',
-        margin: '10px',
-        borderRadius: '50px'
-      }">{{ character.healthPoints }}</p>
-        <img alt="Противник" src="./assets/img/enemy.png"
-             style="height: 450px; width: auto; border-radius: 50px; margin: 10px;">
+      <form name="demo">
+        <div class="answers">
+          <div class="answer">
+            <input id="right-hand" type="radio" name="attack" value="1" (click)="setAnswer(1)" ngModel>
+            <label for="right-hand">Правая рука</label>
+          </div>
+          <div class="answer">
+            <input id="left-hand" type="radio" name="attack" value="2" (click)="setAnswer(2)" ngModel>
+            <label for="left-hand">Левая рука</label>
+          </div>
+          <div class="answer">
+            <input id="right-leg" type="radio" name="attack" value="3" (click)="setAnswer(3)" ngModel>
+            <label for="right-leg">Правая нога</label>
+          </div>
+          <div class="answer">
+            <input id="left-leg" type="radio" name="attack" value="4" (click)="setAnswer(4)" ngModel>
+            <label for="left-leg">Левая нога</label>
+          </div>
+          <button class="attack-button" (click)="checkAnswer()">
+            Атаковать!
+          </button>
+          <div class="win" *ngIf="win">
+            <h3>ПОБЕДА</h3>
+          </div>
+        </div>
+      </form>
+      <div class="character">
+        <p class="health-bar" [ngStyle]="{ width: (enemy.healthPoints / enemy.maxHealthPoints * 100) + '%' }">
+          {{ enemy.healthPoints }}HP
+        </p>
+        <img alt="{{ enemy.name }}" src="{{ enemy.imageURL }}">
       </div>
     </div>
   </div>

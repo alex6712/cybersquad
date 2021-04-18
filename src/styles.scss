@@ -15,69 +15,69 @@ html {
   a:active, a:link:active, a:visited:active {
     color: black;
   }
+}
 
-  body {
-    margin: 0;
+body {
+  margin: 0;
+}
 
-    header {
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
-      position: fixed;
-      font-size: 14px;
-      width: 100%;
-      display: flex;
-      background: #1940FF;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2000;
+header {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  background: #1940FF;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2000;
 
-      a, a:link, a:visited {
-        color: white;
-        font-weight: bold;
-        text-decoration: none;
-        cursor: pointer;
-        transition: color .2s;
-      }
-
-      a:hover, a:link:hover, a:visited:hover {
-        color: black;
-      }
-
-      a:active, a:link:active, a:visited:active {
-        color: black;
-      }
-    }
-
-    .header-element {
-      color: white;
-      display: flex;
-      vertical-align: middle;
-      text-align: center;
-      margin: 10px;
-      font-size: 20px;
-      justify-content: center;
-      align-content: center;
-      flex-direction: column;
-
-      img {
-        height: 50px;
-        width: 50px;
-      }
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.4)
-    }
-
-    footer hr {
-      border: 0 solid rgba(0, 0, 0, 0.3)
-    }
-
-    footer p {
-      text-align: center;
-    }
+  a, a:link, a:visited {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color .2s;
   }
+
+  a:hover, a:link:hover, a:visited:hover {
+    color: black;
+  }
+
+  a:active, a:link:active, a:visited:active {
+    color: black;
+  }
+}
+
+.header-element {
+  color: white;
+  display: flex;
+  vertical-align: middle;
+  text-align: center;
+  margin: 10px;
+  font-size: 20px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.4)
+}
+
+footer hr {
+  border: 0 solid rgba(0, 0, 0, 0.3)
+}
+
+footer p {
+  text-align: center;
 }

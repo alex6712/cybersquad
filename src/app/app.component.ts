@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CharacterCard, BuildingCard } from './card/card.component.js';
+import {Component} from '@angular/core';
+import {CharacterCard, BuildingCard} from './card/card.component.js';
 import {Building, Character} from './game/game.component';
 
 @Component({
@@ -14,19 +14,16 @@ export class AppComponent {
     {
       title: 'Воин',
       content: 'Защита персональных данных и обеспечение конфиденциальности',
-      imageURL: '../assets/img/warrior.png',
       character: new Character('alex6712', '../assets/img/warrior.png')
     },
     {
       title: 'Призыватель',
       content: 'Программирование',
-      imageURL: '../assets/img/summoner.png',
       character: new Character('Naighten', '../assets/img/summoner.png')
     },
     {
       title: 'Маг',
       content: 'Управление данными, информацией и цифровым контентом',
-      imageURL: '../assets/img/mage.png',
       character: new Character('Soul-kun', '../assets/img/mage.png')
     }
   ];
@@ -35,20 +32,17 @@ export class AppComponent {
     {
       title: 'Гильдия',
       content: 'Здесь можно получить задания на проверку вашей компетенции',
-      imageURL: '../assets/img/guild.png',
-      building: new Building('Гильдия')
+      building: new Building('Гильдия', '../assets/img/guild.png')
     },
     {
       title: 'Лес',
       content: 'Опасное место, в котором обитает множество противников',
-      imageURL: '../assets/img/forest.png',
-      building: new Building('Лес')
+      building: new Building('Лес', '../assets/img/forest.png')
     },
     {
       title: 'Город',
       content: 'Город, в котором постоянно что-то происходит... Сходи, проверь в гильдии, может, кому-то опять нужна помощь',
-      imageURL: '../assets/img/country.png',
-      building: new Building('Деревня')
+      building: new Building('Деревня', '../assets/img/country.png')
     }
   ];
 

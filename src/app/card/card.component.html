@@ -1,10 +1,11 @@
 <div class="card">
-  <div class="image">
-    <img alt="{{ card.title }}" src="{{ card.imageURL }}">
+  <div class="image" *ngIf="hasImageURL()">
+    <img alt="{{ card.title }}" src="{{ getImageURL() }}">
   </div>
 
   <div class="about">
     <h3>{{ card.title }}</h3>
     <p>{{ card.content }}</p>
+    <p *ngIf="isTask()"><span style="font-weight: bold">Требуется:</span> {{ getRequirements() }}</p>
   </div>
 </div>
